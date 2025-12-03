@@ -6,4 +6,5 @@ for i in range(23):
 k = 4
 if k != 3:
     print("puto")
-    
+else:
+    print("prubea")
