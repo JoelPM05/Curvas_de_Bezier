@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 import math
 
 def curva_bezier(t,puntos_medios): 
@@ -10,3 +11,9 @@ def curva_bezier(t,puntos_medios):
     
     return suma_final
 
+def graficar_curva_bezier(puntos_medios):
+    x = np.linspace(0,1,100)
+    y = [curva_bezier(xi) for xi in x ]
+
+    plt.plot(x,y)
+    return
