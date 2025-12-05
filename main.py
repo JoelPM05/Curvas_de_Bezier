@@ -14,6 +14,11 @@ def curva_bezier(t,nodos):
 
     return ptos_medios_aprox[0]
 
+
+pts_medios = [np.array([0,0]),np.array([1,1]),np.array([2,2])]
+#graficar_curva_bezier(pts_medios)
+
+
 def graficar_curva_bezier(nodos):
     x = np.linspace(0,1,200)
     puntos = np.array([curva_bezier(xi, nodos) for xi in x])
@@ -26,6 +31,3 @@ def graficar_curva_bezier(nodos):
     plt.legend()
     plt.axis('equal')
     plt.show()
-
-pts_medios = [np.array([0,0]),np.array([1,1]),np.array([2,2])]
-#graficar_curva_bezier(pts_medios)
