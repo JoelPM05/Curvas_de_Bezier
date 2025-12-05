@@ -5,9 +5,6 @@ def distancia_recta_punto(punto,punto_inicial,punto_final):
     C = punto_inicial[1] - A * punto_inicial[0]
 
     distancia = abs(A*punto[0] + B*punto[1] + C)/sqrt(A**2 + B**2)
-    print(A)
-    print(B)
-    print(C)
     return distancia
 
 
