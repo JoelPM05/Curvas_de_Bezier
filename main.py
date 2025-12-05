@@ -3,20 +3,14 @@ import matplotlib.pyplot as plt
 import math
 import nodos_puntuales
 
-def curva_bezier(t,nodos): 
-    # Usamos el algoritmo de Casteljau para evaluar la curva de Bezier
-    n = len(nodos)
-    ptos_medios_aprox = nodos.copy()
-
-    for j in range (1,n):
-        for k in range(n-j):
-            ptos_medios_aprox[k] = ptos_medios_aprox[k]*(1-t) + ptos_medios_aprox[k+1]*t
-
-    return ptos_medios_aprox[0]
 
 
-pts_medios = [np.array([0,0]),np.array([1,1]),np.array([2,2])]
-#graficar_curva_bezier(pts_medios)
+
+pto_inicial = np.array([0,0])
+pto_final = np.array([8,3])
+obs = [np.array([1,2]),np.array([2,0]),np.array([4,2]),np.array([5,5]),np.array([7,2])]
+nod = nodos_puntuales.calcular(pto_inicial,pto_final,obs,1)
+nodos_puntuales.graficar_curva_bezier(nod,obs)
 
 
 def graficar_curva_bezier(nodos):

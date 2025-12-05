@@ -1,7 +1,17 @@
 from math import sqrt
 import numpy as np
 import matplotlib.pyplot as plt
-from main import curva_bezier
+
+def curva_bezier(t,nodos): 
+    # Usamos el algoritmo de Casteljau para evaluar la curva de Bezier
+    n = len(nodos)
+    ptos_medios_aprox = nodos.copy()
+
+    for j in range (1,n):
+        for k in range(n-j):
+            ptos_medios_aprox[k] = ptos_medios_aprox[k]*(1-t) + ptos_medios_aprox[k+1]*t
+
+    return ptos_medios_aprox[0]
 
 def distancia_recta_punto(punto,punto_inicial,punto_final):
     A = (punto_inicial[1]-punto_final[1])/(punto_inicial[0]-punto_final[0])
@@ -24,12 +34,12 @@ def calcular(punto_inicial,punto_final,obstaculos,radio_seguro):
         vector_perpendicular = np.array([A,-1])
         vector_perpendicular /= np.linalg.norm(vector_perpendicular)
 
-        nodos.append(obstaculos[k]+(1.5 * radio_seguro)*vector_perpendicular)
+        nodos.append(obstaculos[k]+(2 * radio_seguro)*vector_perpendicular)
     
     nodos.append(punto_final)
     return nodos
 
-def graficar_curva_bezier(nodos):
+def graficar_curva_bezier(nodos, obstaculos):
     x = np.linspace(0,1,200)
     puntos = np.array([curva_bezier(xi, nodos) for xi in x])
 
@@ -37,7 +47,8 @@ def graficar_curva_bezier(nodos):
     ys = puntos[:,1]
 
     plt.plot(xs, ys, label="Curva Bezier")
-    plt.scatter(*zip(*nodos), color='red', label="Puntos de control")
+    plt.scatter(*zip(*nodos), color='green', label="Puntos de control")
+    plt.scatter(*zip(*obstaculos), color='red', label="Obstaculos")
     plt.legend()
     plt.axis('equal')
     plt.show()
