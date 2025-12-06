@@ -73,6 +73,13 @@ obs_1 = [np.array([5,5]) ]
 rad_seguro_1 = 1.0
 generar_trayectoria(pto_inicial_1,pto_final_1,obs_1,rad_seguro_1)
 
+# Configuracion del caso 1_2
+pto_inicial_1_2 = np.array([0, 0])
+pto_final_1_2 = np.array([10, 10])
+obs_1_2 = [np.array([10,0]) ]
+rad_seguro_1_2 = 1.0
+generar_trayectoria(pto_inicial_1_2,pto_final_1_2,obs_1_2,rad_seguro_1_2)
+
 # Configuracion del caso 2
 pto_inicial_2 = np.array([0, 0])
 pto_final_2 = np.array([8, 2])
