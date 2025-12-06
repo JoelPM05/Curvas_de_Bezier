@@ -76,7 +76,6 @@ def graficar_obstaculos_nodos(obstaculos, nodos, radio_seguro=1.0):
     plt.legend()
     plt.grid(True, alpha=0.3)
     plt.axis('equal')
-    plt.title("Trayectoria con Evasión de Obstáculos")
     plt.xlabel("X")
     plt.ylabel("Y")
     

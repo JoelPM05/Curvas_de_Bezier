@@ -68,12 +68,65 @@ def generar_trayectoria(punto_inicial,punto_final,obstaculos,radio_seguro):
 
 # Configuracion del caso 1
 pto_inicial_1 = np.array([0, 0])
-pto_final_1 = np.array([10, 12])
-obs_1 = [
+pto_final_1 = np.array([10, 10])
+obs_1 = [np.array([5,5]) ]
+rad_seguro_1 = 1.0
+generar_trayectoria(pto_inicial_1,pto_final_1,obs_1,rad_seguro_1)
+
+# Configuracion del caso 2
+pto_inicial_2 = np.array([0, 0])
+pto_final_2 = np.array([8, 2])
+obs_2 = [
+    np.array([0, -5]), np.array([10, 2]), np.array([4, 1]),
+]
+rad_seguro_2 = 1.0
+generar_trayectoria(pto_inicial_2,pto_final_2,obs_2,rad_seguro_2)
+
+# Configuracion del caso 3
+pto_inicial_3 = np.array([-2, -2])
+pto_final_3 = np.array([18, 8])
+obs_3 = [
+    np.array([1, 1]), np.array([1, 2]), np.array([2, 0]),
+    np.array([4, 2]), np.array([5, 5]), np.array([7, 2]),
+    np.array([12, 5]), np.array([13, 4]), np.array([13, 5]),
+    np.array([15, 6])
+]   
+rad_seguro_3 = 1.0
+generar_trayectoria(pto_inicial_3,pto_final_3,obs_3,rad_seguro_3)
+
+# Configuracion del caso 3_2
+pto_inicial_3_2 = np.array([-2, -2])
+pto_final_3_2 = np.array([18, 8])
+obs_3_2 = [
+    np.array([1, 1]), np.array([1, 2]), np.array([2, 0]),
+    np.array([4, 2]), np.array([5, 5]), np.array([7, 2]),
+    np.array([12, 5]), np.array([13, 4]), np.array([13, 5]),
+    np.array([15, 6])
+]   
+rad_seguro_3_2 = 0.5
+generar_trayectoria(pto_inicial_3_2,pto_final_3_2,obs_3_2,rad_seguro_3_2)
+
+# Configuracion del caso 4
+pto_inicial_4 = np.array([0, 0])
+pto_final_4 = np.array([10, 12])
+obs_4 = [
     np.array([1, 1]), np.array([1, 2]), np.array([2, 0]),
     np.array([4, 2]), np.array([5, 5]), np.array([7, 2]),
     np.array([12, 5]), np.array([13, 4]), np.array([13, 5]),
     np.array([15, 6]),np.array([12,18]),np.array([20,30])
 ]
-rad_seguro_1 = 1.0
-generar_trayectoria(pto_inicial_1,pto_final_1,obs_1,rad_seguro_1)
+rad_seguro_4 = 1.0
+generar_trayectoria(pto_inicial_4,pto_final_4,obs_4,rad_seguro_4)
+
+# Configuracion del caso 4_2
+pto_inicial_4_2 = np.array([-3, -4])
+pto_final_4_2 = np.array([10, 12])
+obs_4_2 = [
+    np.array([1, 1]), np.array([1, 2]), np.array([2, 0]),
+    np.array([4, 2]), np.array([5, 5]), np.array([7, 2]),
+    np.array([12, 5]), np.array([13, 4]), np.array([13, 5]),
+    np.array([15, 6]),np.array([12,18]),np.array([20,30])
+]
+rad_seguro_4_2 = 1.0
+generar_trayectoria(pto_inicial_4_2,pto_final_4_2,obs_4_2,rad_seguro_4_2)
+
