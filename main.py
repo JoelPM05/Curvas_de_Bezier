@@ -3,8 +3,6 @@ import manejo_graficas
 import manejo_nodos
 import generar_nodos
 
-#falta ver error con el len(nodos), lo voy a corregir yo
-#Tu cambia la funcion calcular y agrega las q ocupes en el archivo de generar_nodos.py
 
 def curva_bezier(punto_inicial,punto_final,obstaculos,radio_seguro):
     nodos = generar_nodos.calcular(punto_inicial,punto_final,obstaculos,radio_seguro)
