@@ -39,14 +39,18 @@ def calcular(punto_inicial,punto_final,obstaculos,radio_seguro):
     nodos.append(punto_final)
     return nodos
 
-def graficar_curva_bezier(nodos, obstaculos):
+def graficar_curva_bezier(nodos):
     x = np.linspace(0,1,200)
     puntos = np.array([curva_bezier(xi, nodos) for xi in x])
 
     xs = puntos[:,0]
     ys = puntos[:,1]
 
-    plt.plot(xs, ys, label="Curva Bezier")
+    plt.plot(xs, ys)
+    return
+    
+
+def graficar_obstaculos_nodos(obstaculos,nodos):
     plt.scatter(*zip(*nodos), color='green', label="Puntos de control")
     plt.scatter(*zip(*obstaculos), color='red', label="Obstaculos")
     plt.legend()
