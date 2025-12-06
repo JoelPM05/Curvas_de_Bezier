@@ -1,7 +1,7 @@
 import numpy as np
 import manejo_graficas
 import manejo_nodos
-import generar_nodos
+import V1.generar_nodos as generar_nodos
 
 
 def curva_bezier(punto_inicial,punto_final,obstaculos,radio_seguro):

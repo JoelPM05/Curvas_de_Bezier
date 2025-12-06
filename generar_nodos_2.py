@@ -3,13 +3,10 @@ import heapq
 from math import sqrt
 
 def calcular(punto_inicial, punto_final, obstaculos, radio_seguro):
-    """
-    Versión simplificada y corregida
-    """
-    # Ampliar el radio para planificación
+    # Ampliar el radio para planificacion
     radio_planificacion = radio_seguro * 1.5
     
-    # 1. Crear malla
+    #Crear malla
     min_x = min(punto_inicial[0], punto_final[0]) - 2
     max_x = max(punto_inicial[0], punto_final[0]) + 2
     min_y = min(punto_inicial[1], punto_final[1]) - 2
@@ -25,7 +22,7 @@ def calcular(punto_inicial, punto_final, obstaculos, radio_seguro):
         for y in y_vals:
             malla.append((x, y))
     
-    # 2. Filtrar puntos seguros
+    # Filtrar puntos seguros
     puntos_seguros = []
     for punto in malla:
         seguro = True
@@ -42,11 +39,9 @@ def calcular(punto_inicial, punto_final, obstaculos, radio_seguro):
     if tuple(punto_final) not in puntos_seguros:
         puntos_seguros.append(tuple(punto_final))
     
-    # 3. Mapear índices
+
     idx_a_punto = {i: p for i, p in enumerate(puntos_seguros)}
     punto_a_idx = {p: i for i, p in enumerate(puntos_seguros)}
-    
-    # 4. Construir grafo simple
     n = len(puntos_seguros)
     grafo = {i: [] for i in range(n)}
     
@@ -60,7 +55,7 @@ def calcular(punto_inicial, punto_final, obstaculos, radio_seguro):
                 grafo[i].append((j, dist))
                 grafo[j].append((i, dist))
     
-    # 5. Dijkstra
+    # Dijkstra
     inicio = punto_a_idx[tuple(punto_inicial)]
     fin = punto_a_idx[tuple(punto_final)]
     
@@ -84,21 +79,14 @@ def calcular(punto_inicial, punto_final, obstaculos, radio_seguro):
                 prev[v] = u
                 heapq.heappush(cola, (alt, v))
     
-    # 6. Reconstruir ruta
     ruta = []
     u = fin
-    
     if prev[u] is None and u != inicio:
-        # Ruta directa si no hay camino
         return [np.array(punto_inicial), np.array(punto_final)]
-    
     while u is not None:
         ruta.append(idx_a_punto[u])
         u = prev[u]
-    
     ruta.reverse()
-    
-    # Convertir a arrays numpy
     ruta_np = [np.array(p, dtype=float) for p in ruta]
     
     return ruta_np
