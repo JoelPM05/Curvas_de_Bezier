@@ -1,17 +1,19 @@
 import numpy as np
 import manejo_graficas
 import manejo_nodos
+import generar_nodos
 
-#falta ver error con el len(nodos)
+#falta ver error con el len(nodos), lo voy a corregir yo
+#Tu cambia la funcion calcular y agrega las q ocupes en el archivo de generar_nodos.py
 
 def curva_bezier(punto_inicial,punto_final,obstaculos,radio_seguro):
-    nodos = manejo_graficas.calcular(punto_inicial,punto_final,obstaculos,radio_seguro)
+    nodos = generar_nodos.calcular(punto_inicial,punto_final,obstaculos,radio_seguro)
     manejo_graficas.graficar_curva_bezier(nodos)
     manejo_graficas.graficar_obstaculos_nodos(nodos,obstaculos)
     return
 
 def curva_bezier_por_partes(punto_inicial,punto_final,obstaculos,radio_seguro):
-    nodos = manejo_graficas.calcular(punto_inicial,punto_final,obstaculos,radio_seguro)
+    nodos = generar_nodos.calcular(punto_inicial,punto_final,obstaculos,radio_seguro)
     n = len(nodos)
     if n < 5:
         manejo_graficas.graficar_curva_bezier(nodos)
