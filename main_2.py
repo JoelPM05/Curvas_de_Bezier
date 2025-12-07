@@ -65,7 +65,7 @@ def generar_trayectoria(punto_inicial,punto_final,obstaculos,radio_seguro):
 
     plt.show()
 
-# Ejecutar todas las pruebas
+# Codigo para ejecutar todas las pruebas
 for i, caso in enumerate(casos_prueba):
     print(f"\n{'='*60}")
     print(f"Caso {i+1}/{len(casos_prueba)}: n={caso['n']}, conjunto={caso['conjunto']}")
