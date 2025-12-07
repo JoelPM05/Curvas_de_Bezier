@@ -40,7 +40,7 @@ def graficar_curva_bezier(nodos, obstaculos, radio_seguro):
     else:
         xs = [p[0] for p in puntos_curva]
         ys = [p[1] for p in puntos_curva]
-    plt.plot(xs, ys, linewidth=2, label="Trayectoria Bézier")
+    plt.plot(xs, ys, linewidth=2, label="Trayectoria Bezier")
     
     # Verificar distancia a obstaculos
     puntos_cercanos = []
@@ -71,7 +71,7 @@ def graficar_obstaculos_nodos(obstaculos, nodos, radio_seguro=1.0):
         plt.gca().add_patch(circle)
     
     # Dibujar linea entre puntos de control
-    plt.plot(x_control, y_control, 'g--', alpha=0.5, linewidth=1, label="Polígono de control")
+    plt.plot(x_control, y_control, 'g--', alpha=0.5, linewidth=1, label="Poligono de control")
     
     plt.legend()
     plt.grid(True, alpha=0.3)
@@ -79,7 +79,7 @@ def graficar_obstaculos_nodos(obstaculos, nodos, radio_seguro=1.0):
     plt.xlabel("X")
     plt.ylabel("Y")
     
-    # Ajustar límites del gráfico
+    # Ajustar limites del grafico
     all_x = x_control + [o[0] for o in obstaculos]
     all_y = y_control + [o[1] for o in obstaculos]
     plt.xlim(min(all_x) - 2, max(all_x) + 2)
